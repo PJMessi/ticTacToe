@@ -20,40 +20,12 @@ namespace WindowsFormsApplication1
 
         private void newGame()
         {
-            btn11.Text = "";
-            btn12.Text = "";
-            btn13.Text = "";
-            btn21.Text = "";
-            btn22.Text = "";
-            btn23.Text = "";
-            btn31.Text = "";
-            btn32.Text = "";
-            btn33.Text = "";
-
-            btn11.BackColor = default(Color);
-            btn22.BackColor = default(Color);
-            btn33.BackColor = default(Color);
-            btn31.BackColor = default(Color);
-            btn22.BackColor = default(Color);
-            btn13.BackColor = default(Color);
-            btn11.BackColor = default(Color);
-            btn12.BackColor = default(Color);
-            btn13.BackColor = default(Color);
-            btn21.BackColor = default(Color);
-            btn22.BackColor = default(Color);
-            btn23.BackColor = default(Color);
-            btn31.BackColor = default(Color);
-            btn32.BackColor = default(Color);
-            btn33.BackColor = default(Color);
-            btn11.BackColor = default(Color);
-            btn21.BackColor = default(Color);
-            btn31.BackColor = default(Color);
-            btn12.BackColor = default(Color);
-            btn22.BackColor = default(Color);
-            btn32.BackColor = default(Color);
-            btn13.BackColor = default(Color);
-            btn23.BackColor = default(Color);
-            btn33.BackColor = default(Color);
+            Button[] btnList = { btn11, btn12, btn13, btn21, btn22, btn23, btn31, btn32, btn33 };
+            foreach(Button x in btnList)
+            {
+                x.Text = "";
+                x.BackColor = default(Color);
+            }          
         }
 
         private void checker(Button x)
