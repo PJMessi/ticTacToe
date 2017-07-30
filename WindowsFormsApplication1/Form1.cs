@@ -12,81 +12,126 @@ namespace WindowsFormsApplication1
 {
     public partial class TicTacToe : Form
     {
+        public bool initial = true;
         public TicTacToe()
         {
             InitializeComponent();
         }
 
-        private void checker()
+        private void newGame()
+        {
+            btn11.Text = "";
+            btn12.Text = "";
+            btn13.Text = "";
+            btn21.Text = "";
+            btn22.Text = "";
+            btn23.Text = "";
+            btn31.Text = "";
+            btn32.Text = "";
+            btn33.Text = "";
+        }
+
+        private void checker(Button x)
         {
             bool one, two, three, four, five, six, seven, eight;
-
-            one = (a11.Text == "o" && a22.Text == "o" && a33.Text == "o") || (a11.Text == "x" && a22.Text == "x" && a33.Text == "x");
-            two = (a31.Text == "o" && a22.Text == "o" && a13.Text == "o") || (a31.Text == "x" && a22.Text == "x" && a13.Text == "x");
-
-            three = (a11.Text == "o" && a12.Text == "o" && a13.Text == "o") || (a11.Text == "x" && a12.Text == "x" && a13.Text == "x");
-            four = (a21.Text == "o" && a22.Text == "o" && a23.Text == "o") || (a21.Text == "x" && a22.Text == "x" && a23.Text == "x");
-            five = (a31.Text == "o" && a32.Text == "o" && a33.Text == "o") || (a31.Text == "x" && a32.Text == "x" && a33.Text == "x");
-
-            six = (a11.Text == "o" && a21.Text == "o" && a31.Text == "o") || (a11.Text == "x" && a21.Text == "x" && a31.Text == "x");
-            seven = (a12.Text == "o" && a22.Text == "o" && a32.Text == "o") || (a12.Text == "x" && a22.Text == "x" && a32.Text == "x");
-            eight = (a13.Text == "o" && a23.Text == "o" && a33.Text == "o") || (a13.Text == "x" && a23.Text == "x" && a33.Text == "x");
-
-
-            if (one || two || three || four || five || six || seven || eight)
+            if (initial)
             {
-                lblresult.Text = "game won";
+                x.Text = "O";
+                initial = false;
+            }
+            else
+            {
+                x.Text = "X";
+                initial = true;
             }
 
-            if(a11.Text!=""&& a12.Text != "" && a13.Text != "" && a21.Text != "" && a22.Text != "" && a23.Text != "" && a31.Text != "" && a32.Text != "" && a33.Text != "")
+            one = (btn11.Text == "X" && btn22.Text == "X" && btn33.Text == "X") || (btn11.Text == "O" && btn22.Text == "O" && btn33.Text == "O");
+            two = (btn31.Text == "X" && btn22.Text == "X" && btn13.Text == "X") || (btn31.Text == "O" && btn22.Text == "O" && btn13.Text == "O");
+
+            three = (btn11.Text == "X" && btn12.Text == "X" && btn13.Text == "X") || (btn11.Text == "O" && btn12.Text == "O" && btn13.Text == "O");
+            four = (btn21.Text == "X" && btn22.Text == "X" && btn23.Text == "X") || (btn21.Text == "O" && btn22.Text == "O" && btn23.Text == "O");
+            five = (btn31.Text == "X" && btn32.Text == "X" && btn33.Text == "X") || (btn31.Text == "O" && btn32.Text == "O" && btn33.Text == "O");
+
+            six = (btn11.Text == "X" && btn21.Text == "X" && btn31.Text == "X") || (btn11.Text == "O" && btn21.Text == "O" && btn31.Text == "O");
+            seven = (btn12.Text == "X" && btn22.Text == "X" && btn32.Text == "X") || (btn12.Text == "O" && btn22.Text == "O" && btn32.Text == "O");
+            eight = (btn13.Text == "X" && btn23.Text == "X" && btn33.Text == "X") || (btn13.Text == "O" && btn23.Text == "O" && btn33.Text == "O");
+
+
+            if(one||two||three||four||five||six||seven||eight)
             {
-                lblresult.Text = "tie";
+                MessageBox.Show("you won dood");
+                newGame();
+            }
+            if(btn11.Text!="" && btn12.Text != "" && btn13.Text != "" && btn21.Text != "" && btn22.Text != "" && btn23.Text != "" && btn31.Text != "" && btn32.Text != "" && btn33.Text != "")
+            {
+                MessageBox.Show("aww tie, try again");
+                newGame();
             }
         }
 
-        private void a11_TextChanged(object sender, EventArgs e)
-        {
-            checker();
+        private void btn11_Click(object sender, EventArgs e)
+        {          
+            checker(btn11);
         }
 
-        private void a12_TextChanged(object sender, EventArgs e)
+        private void btn12_Click(object sender, EventArgs e)
         {
-            checker();
+            checker(btn12);
         }
 
-        private void a13_TextChanged(object sender, EventArgs e)
+        private void btn13_Click(object sender, EventArgs e)
         {
-            checker();
+            checker(btn13);
         }
 
-        private void a21_TextChanged(object sender, EventArgs e)
+        private void btn21_Click(object sender, EventArgs e)
         {
-            checker();
+            checker(btn21);
         }
 
-        private void a22_TextChanged(object sender, EventArgs e)
+        private void btn22_Click(object sender, EventArgs e)
         {
-            checker();
+            checker(btn22);
         }
 
-        private void a23_TextChanged(object sender, EventArgs e)
+        private void btn23_Click(object sender, EventArgs e)
         {
-            checker();
+            checker(btn23);
         }
 
-        private void a31_TextChanged(object sender, EventArgs e)
+        private void btn31_Click(object sender, EventArgs e)
         {
-            checker();
+            checker(btn31);
         }
 
-        private void a32_TextChanged(object sender, EventArgs e)
+        private void btn32_Click(object sender, EventArgs e)
         {
-            checker();
+            checker(btn32);
         }
 
-        private void a33_TextChanged(object sender, EventArgs e)
+        private void btn33_Click(object sender, EventArgs e)
         {
-            checker();
+            checker(btn33);
+        }
+
+        private void newToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            newGame();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("made by the wierd guy");
+        }
+
+        private void instructionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("ah common, u need instructin to play a simple tic tac toe??????");
         }
     }
 }
