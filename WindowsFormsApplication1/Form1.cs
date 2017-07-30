@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
-    public partial class Form1 : Form
+    public partial class TicTacToe : Form
     {
-        public Form1()
+        public TicTacToe()
         {
             InitializeComponent();
         }
@@ -36,6 +36,11 @@ namespace WindowsFormsApplication1
             if (one || two || three || four || five || six || seven || eight)
             {
                 lblresult.Text = "game won";
+            }
+
+            if(a11.Text!=""&& a12.Text != "" && a13.Text != "" && a21.Text != "" && a22.Text != "" && a23.Text != "" && a31.Text != "" && a32.Text != "" && a33.Text != "")
+            {
+                lblresult.Text = "tie";
             }
         }
 
